@@ -209,7 +209,12 @@ input, textarea {
     font-family: inherit;
 }
 
-.error-msg { color: var(--error-color); font-size: 0.85rem; display: none; margin-top: 0.5rem; }
+.error-msg { 
+    color: var(--error-color); 
+    font-size: 0.85rem; 
+    margin-top: 0.5rem; 
+    display: block; 
+}
 .success-msg { color: var(--success-color); margin-top: 1rem; font-weight: bold; text-align: center; }
 .hidden { display: none !important; }
 
