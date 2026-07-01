@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <!-- 웹 페이지 관련 설정 태그-->
+    <meta charset="UTF-8" />
+    <!-- 웹 페이지 추가 정보 제공 meta 태그-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>신희수 | 포트폴리오</title>
+    <!-- defer 속성 통한 js 연결로 html 분석 후 js 파일 실행시킴-->
+    <!-- 빠른 웹페이지 로딩 및 dom 요소 생성 전 js 실행으로 발생하는 문제 예방 -->
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+  <body>
+    <!-- 실제 화면 구성 태그-->
+    <!-- 네비게이션 헤더 -->
+    <header id="header">
+      <!-- 제목, 소개 관련 시맨틱 태그-->
+      <nav class="navbar container">
+        <!-- 하이퍼링크 모아둔 내비게이션 시맨틱 태그-->
+        <div class="logo"><a href="#hero">HS. Dev</a></div>
+        <ul class="nav-menu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-controls">
+          <button class="theme-toggle" aria-label="다크 모드 토글">🌙</button>
+          <button class="hamburger" aria-label="메뉴 열기">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <!-- 문서의 특정 장 의미하는 section 시맨틱 태그-->
+      <section id="hero" class="section fade-in">
+        <div class="container hero-content">
+          <h1>Hello, I am 신희수</h1>
+          <p>
+            소프트웨어학부 전공생으로 AI, 보안, 인프라 등 다방면의 기술적 기저를
+            이해하며 탄탄한 코드를 만들어갑니다.
+          </p>
+          <div class="hero-buttons">
+            <a href="#experience" class="btn btn-primary">My Experience</a>
+            <a href="#projects" class="btn btn-secondary">GitHub Projects</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <!-- 문서의 특정 장 의미하는 section 시맨틱 태그-->
+      <!-- About Section -->
+      <section id="about" class="section fade-in">
+        <div class="container">
+          <h2>About Me</h2>
+          <div class="about-wrapper">
+            <!-- 프로필 이미지 추가 -->
+            <div class="profile-image-container">
+              <img
+                src="images/KakaoTalk_20260701_201922169.jpg"
+                alt="신희수 프로필 사진"
+              />
+            </div>
+
+            <!-- 기존 상세 정보 -->
+            <div class="about-details">
+              <div class="about-grid">
+                <article class="about-card">
+                  <h3>🎓 Education</h3>
+                  <p>
+                    <strong>광운대학교 소프트웨어학부</strong> 재학 (2022.03 ~)
+                  </p>
+                </article>
+                <article class="about-card">
+                  <h3>📜 Certifications</h3>
+                  <p><strong>AICE Associate</strong> 자격증 (2024-02호) 취득</p>
+                  <p>
+                    <strong>LG Aimers 8기</strong> LLM Compression 과정 수료
+                  </p>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section (상세 이력) -->
+      <!-- 문서의 특정 장 의미하는 section 시맨틱 태그-->
+      <section id="experience" class="section fade-in bg-light">
+        <div class="container">
+          <h2>Core Experiences</h2>
+          <div class="grid-container">
+            <!-- AI -->
+            <!-- 문서와 독립적인 컨텐츠인 article 시맨틱 태그-->
+            <article class="card">
+              <h3>🤖 AI & LLM</h3>
+              <ul>
+                <li>
+                  <strong>LG EXAONE 모델 최적화:</strong> EXAONE-4.0-1.2B 모델을
+                  대상으로 메모리 절약과 속도 증가를 위한 양자화(W4A16) 및 성능
+                  개선 작업 수행.
+                </li>
+                <li>
+                  GSM8K, MMLU 등 데이터셋 전처리 및 병합을 통한 캘리브레이션
+                  샘플링 적용.
+                </li>
+              </ul>
+            </article>
+            <!-- Security -->
+            <article class="card">
+              <h3>🛡️ Information Security</h3>
+              <ul>
+                <li>
+                  <strong>시스템 보안:</strong> GDB 분석을 통해 Buffer Overflow,
+                  Off-by-one, Integer Overflow, Format String Bug 등 메모리
+                  취약점을 악용한 Exploit 코드 개발.
+                </li>
+                <li>
+                  <strong>웹 보안:</strong> 쿠키 탈취(XSS), CSRF를 통한 권한
+                  위조, SQL Injection 방어 우회, XSS 프로필 웜 등 다양한 웹 공격
+                  원리 분석 및 구현.
+                </li>
+              </ul>
+            </article>
+            <!-- Linux/System -->
+            <article class="card">
+              <h3>🐧 Linux & Embedded</h3>
+              <ul>
+                <li>
+                  <strong>서버 구축:</strong> Ubuntu 22.04 LTS 환경에서 xinetd,
+                  openssh-server 등을 활용한 Telnet, SSH, VNC 서버 구축 및
+                  방화벽(ufw) 제어.
+                </li>
+                <li>
+                  <strong>시스템 콜 분석:</strong> <code>strace</code>를
+                  활용하여 <code>ls</code> 명령어 실행 시 호출되는
+                  <code>execve</code>, <code>openat</code>, <code>mmap</code> 등
+                  커널 시스템 콜 흐름 분석.
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section (GitHub API) -->
+      <section id="projects" class="section fade-in">
+        <div class="container">
+          <h2>GitHub Repositories</h2>
+          <p>GitHub API를 통해 실시간으로 불러온 프로젝트 목록입니다.</p>
+          <div id="projects-container" class="grid-container">
+            <!-- JavaScript로 동적 렌더링 -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="section fade-in bg-light">
+        <div class="container">
+          <h2>Contact Me</h2>
+          <p>Email: el0710@naver.com</p>
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required />
+              <span class="error-msg" id="name-error"
+                >이름을 입력해주세요.</span
+              >
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+              <span class="error-msg" id="email-error"
+                >유효한 이메일을 입력해주세요.</span
+              >
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+              ></textarea>
+              <span class="error-msg" id="message-error"
+                >메시지를 입력해주세요.</span
+              >
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <p id="form-success" class="success-msg hidden">
+              성공적으로 전송되었습니다!
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <!-- 꼬리말 관련 시맨틱 태그-->
+    <footer>
+      <div class="container footer-content">
+        <p>&copy; 2026 신희수. All Rights Reserved.</p>
+        <div class="social-links">
+          <a
+            href="https://github.com/star-candy"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll Top Button -->
+    <button id="scroll-top" class="hidden" aria-label="맨 위로 가기">↑</button>
+  </body>
+</html>
