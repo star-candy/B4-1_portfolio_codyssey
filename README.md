@@ -48,11 +48,81 @@
 
 
 ### Dom 사용 흐름 이해하기
+- DOM(문서 객체 모델이란?)
+    - HTML 요소를 가져오거나 변경, 추가, 삭제하는 방법에 대한 표준
+    - 즉 HTML 태그를 js에서 사용할 수 있는 객체로 만드는 것.
+- ![alt text](images/image3.png)
+    - 웹 페이지에서 HTML 로드 -> 해당 페이지 대한 DOM 생성 -> js 통한 DOM 요소 조작 순서로 작동
+    - defer 옵션 추가 이유 또한 DOM 로드 전 js가 실행되는 것을 막기 위함 (추가적인 속도적 이점)
 
 
 
 ### 화살표 함수, 구조분해 할당, 배열 메서드 이해하기
+- 화살표 함수
+```javascript
+// 1. 기존의 일반 함수
+const add = function(a, b) {
+  return a + b;
+};
+
+// 2. 화살표 함수 (기본)
+const addArrow = (a, b) => {
+  return a + b;
+};
+```
+    - 기존 function 문법 대신 간결하게 함수를 작성하기 위함.
+    - 기존 파이썬 람다 문법과 유사
+
+- 구조 분해 할당
+    - 파이썬의 list, dict등의 값을 index와 value, key와 value로 변수에 담는 방식과 유사
+    - 특정 자료구조의 구조를 분해하여 변수에 할당 및 수정
+
+```javascript
+const user = { 
+  name: '신희수', 
+  age: 24, 
+  job: 'Developer' 
+};
+
+// 기존 방식
+// const name = user.name;
+// const age = user.age;
+
+// 구조분해 할당 방식
+const { name, age } = user; 
+console.log(name); // '신희수'
+console.log(age);  // 24
+```
 
 
-### js의 비동기 처리 이해하기
+### js의 비동기 처리 이해하기 (async 함수)
+- js는 기본적으로 싱글 스레드 기반으로 동작
+    - 따라서 이전 작업 처리 전까지 다음 작업을 처리하지 못하는 문제 발생
+    - 이를 해결하기 위해 특정 작업 종료 전 다음 작업을 같이 실행하는 비동기 방식 사용 (async)
+    - async 태그 : 함수 앞에 붙여 해당 함수가 비동기 함수임을 나타냄
+    - await 태그 : 비동기 함수의 실행 결과를 기다림
 
+### onclick과 addEventListener 차이 이해하기
+
+```javascript
+<script>
+      let buttonElement = document.getElementById('testButton');
+
+      buttonElement.onclick = function () {
+        console.log('callback 1');
+      };
+      buttonElement.onclick = function () {
+        console.log('callback 2');
+      };
+      buttonElement.addEventListener('click', function () {
+        console.log('callback 1');
+      });
+      buttonElement.addEventListener('click', function () {
+        console.log('callback 2');
+      });
+    </script>
+```
+- 두 함수 모두 특정 이벤트를 구독하여 동작한다는 특징을 가짐
+    - 단 `onclick`의 경우 다중 이벤트 구독이 불가능하다.
+    - 마지막에 등록된 이벤트 하나만 실행될 것. (callback 2)
+- `EventListener`의 경우  누적된 모든 이벤트 실행이 가능함.
