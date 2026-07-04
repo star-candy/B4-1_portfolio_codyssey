@@ -12,9 +12,9 @@
 - https://star-candy.github.io/B4-1_portfolio_codyssey/
 
 ### 동작 화면
-- ![alt text](images/image4.png.png)
-- ![alt text](images/image5.png.png)
-- ![alt text](images/image6.png.png)
+- ![alt text](images/image4.png)
+- ![alt text](images/image5.png)
+- ![alt text](images/image6.png)
 
 ## 2. 과제 학습 내용
 
