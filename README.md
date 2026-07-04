@@ -1,5 +1,20 @@
 ## 1. 프로젝트 목적 및 개요
-- HTML, css, javascript를 사용해 포트폴리오 웹사이트 제작하기 
+- HTML, css, javascript를 사용해 포트폴리오 웹사이트 제작하기
+
+
+### 사용 기술
+- HTML
+- CSS
+- Javascript
+
+
+### 배포 URL 
+- https://star-candy.github.io/B4-1_portfolio_codyssey/
+
+### 동작 화면
+- ![alt text](images/image4.png.png)
+- ![alt text](images/image5.png.png)
+- ![alt text](images/image6.png.png)
 
 ## 2. 과제 학습 내용
 
