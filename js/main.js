@@ -89,7 +89,7 @@
 
     // 맨 위로 가기 버튼 클릭 이벤트
     scrollTopBtn.addEventListener('click', () => {
-        // 화면 좌표(0,0)으로 부드럽게 스크롤합니다.
+        // 화면 좌표(0,0)으로 부드럽게 스크롤
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 

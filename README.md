@@ -7,7 +7,6 @@
 - CSS
 - Javascript
 
-
 ### 배포 URL 
 - https://star-candy.github.io/B4-1_portfolio_codyssey/
 
