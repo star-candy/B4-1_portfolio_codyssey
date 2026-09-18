@@ -126,8 +126,10 @@
 
         try {
             // fetch API를 사용해 데이터를 요청하고, await로 응답이 올 때까지 기다립니다.
-            // ?sort=updated를 통해 최근 업데이트된 레포지토리 순으로 가져옵니다.
-            const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated`);
+            // 공개 저장소를 pushed_at 기준으로 불러와 최근 커밋이 반영된 순서로 표시합니다.
+            const response = await fetch(
+                `https://api.github.com/users/${GITHUB_USERNAME}/repos?type=owner&sort=pushed&direction=desc&per_page=100`
+            );
             
             // HTTP 응답 코드가 200번대(성공)가 아니라면 에러를 던집니다(catch 블록으로 이동).
             if (!response.ok) {
@@ -148,6 +150,7 @@
             // [상태 3] 성공 상태 렌더링
             const html = repos
                 .filter(repo => !repo.fork) // 1. 내가 직접 포크(Fork)하지 않은 오리지널 레포지만 필터링
+                .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))
                 .slice(0, 6) // 2. 최신순으로 상위 6개까지만 자름
                 .map(repo => { // 3. 배열 안의 데이터를 바탕으로 HTML 문자열 배열 생성
                     // 객체 구조 분해 할당을 통해 필요한 속성만 깔끔하게 추출합니다.
@@ -179,69 +182,3 @@
     };
 
     fetchGitHubProjects(); // 스크립트 실행 시 API 호출 함수 최초 1회 실행
-
-    // ==========================================
-    // 5. 폼 유효성 검사 (입력 상태 검증)
-    // ==========================================
-    const contactForm = document.getElementById('contact-form');
-    
-    // 이메일 형식이 맞는지 정규 표현식(Regex)을 이용해 검사하는 도우미 함수입니다.
-    const isValidEmail = (email) => {
-        // @와 공백을 제외한 모든 문자가 1개 이상 포함된다.
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return regex.test(email); // 통과하면 true, 아니면 false 반환
-    };
-
-    // 폼 제출 이벤트
-    contactForm.addEventListener('submit', (e) => {
-        // 서버로 폼이 제출되어 페이지가 새로고침 되는 기본 동작을 막습니다. (프론트엔드 단독 검증을 위함)
-        e.preventDefault(); 
-        
-        let isValid = true; // 최종 제출을 허용할지 결정하는 상태값
-
-        const nameInput = document.getElementById('name');
-        const emailInput = document.getElementById('email');
-        const messageInput = document.getElementById('message');
-
-        // [이름 검증]
-        // trim()은 입력값 앞뒤의 공백을 제거합니다. 스페이스바만 입력한 경우 빈 문자열로 처리됩니다.
-        if (!nameInput.value.trim()) {
-            // 입력값이 없으면 hidden 클래스를 제거하여 에러 메시지를 보여줍니다.
-            document.getElementById('name-error').classList.remove('hidden');
-            isValid = false; // 하나라도 실패하면 제출 상태를 false로 변경
-        } else {
-            // 입력값이 정상이면 에러 메시지를 다시 숨깁니다.
-            document.getElementById('name-error').classList.add('hidden');
-        }
-
-        // [이메일 검증]
-        // 빈 값이거나, 정규식에 통과하지 못하면 에러 표시
-        if (!emailInput.value.trim() || !isValidEmail(emailInput.value.trim())) {
-            document.getElementById('email-error').classList.remove('hidden');
-            isValid = false;
-        } else {
-            document.getElementById('email-error').classList.add('hidden');
-        }
-
-        // [메시지 검증]
-        if (!messageInput.value.trim()) {
-            document.getElementById('message-error').classList.remove('hidden');
-            isValid = false;
-        } else {
-            document.getElementById('message-error').classList.add('hidden');
-        }
-
-        // [성공 상태 UI 처리]
-        if (isValid) { // 모든 검증을 통과했다면
-            const successMsg = document.getElementById('form-success');
-            // 1. 성공 메시지 표시
-            successMsg.classList.remove('hidden');
-            // 2. 입력칸 안의 텍스트 모두 초기화(리셋)
-            contactForm.reset();
-            
-            // 3. 3초(3000ms) 뒤에 성공 메시지를 자동으로 다시 숨김
-            setTimeout(() => {
-                successMsg.classList.add('hidden');
-            }, 3000);
-        }
-    });

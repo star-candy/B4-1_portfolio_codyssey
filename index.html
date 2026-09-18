@@ -23,7 +23,6 @@
           <li><a href="#about">About</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="nav-controls">
           <button class="theme-toggle" aria-label="다크 모드 토글">🌙</button>
@@ -71,9 +70,10 @@
                 <article class="about-card">
                   <h3>🎓 Education</h3>
                   <p>
-                    <strong>광운대학교 소프트웨어학부</strong> 재학 (2022.03 ~)
+                    <strong>광운대학교 소프트웨어학부</strong> 재학 (2021.03 ~)
                   </p>
-                  <p><strong>코디세이 올인원 1기</strong>(2026.04~)</p>
+                  <p><strong>코디세이 올인원 1기</strong> (2026.04 ~ 2026.09)</p>
+                  <p><strong>EST AI Challengers 2기</strong> (2026.08 ~ 2026.09)</p>
                 </article>
                 <article class="about-card">
                   <h3>📜 Certifications</h3>
@@ -83,6 +83,9 @@
                   <a href="file/LG_AI_해커톤_수료증.pdf" target="_blank">
                     <p><strong>LG Aimers 8기</strong> 해커톤 수료</p>
                   </a>
+                  <p>
+                    <strong>EST AI Challengers 2기</strong> 해커톤 수료 및 장려상 수상
+                  </p>
                 </article>
               </div>
             </div>
@@ -112,6 +115,17 @@
                   <a href="file/ai모델_양자화_및_성능_개선.pdf" target="_blank">
                     GSM8K, MMLU 등 데이터셋 전처리 및 병합을 통한 캘리브레이션
                     샘플링 적용.
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/star-candy/Est_Map"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <strong>피해가!:</strong> OSM 보행망과 서울 공공데이터의 계절·안심
+                    지표를 결합해 Q-learning으로 맞춤 경로를 추천하고, 적용이 어려우면
+                    weighted A*로 전환하는 서울 맞춤 보행 경로 서비스 개발.
                   </a>
                 </li>
               </ul>
@@ -165,52 +179,13 @@
       <section id="projects" class="section fade-in">
         <div class="container">
           <h2>GitHub Repositories</h2>
-          <p>GitHub API를 통해 실시간으로 불러온 프로젝트 목록입니다.</p>
+          <p>최근 커밋 순으로 정렬한 GitHub 프로젝트 목록입니다.</p>
           <div id="projects-container" class="grid-container">
             <!-- JavaScript로 동적 렌더링 -->
           </div>
         </div>
       </section>
 
-      <!-- Contact Section -->
-      <section id="contact" class="section fade-in bg-light">
-        <div class="container">
-          <h2>Contact Me</h2>
-          <p>Email: el0710@naver.com</p>
-          <form id="contact-form" class="contact-form" novalidate>
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" required />
-              <span class="error-msg hidden" id="name-error"
-                >이름을 입력해주세요.</span
-              >
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required />
-              <span class="error-msg hidden" id="email-error"
-                >유효한 이메일을 입력해주세요.</span
-              >
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                required
-              ></textarea>
-              <span class="error-msg hidden" id="message-error"
-                >메시지를 입력해주세요.</span
-              >
-            </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-            <p id="form-success" class="success-msg hidden">
-              성공적으로 전송되었습니다!
-            </p>
-          </form>
-        </div>
-      </section>
     </main>
 
     <!-- Footer -->
